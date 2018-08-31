@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>判断是否为回文数</title>
+    <link  rel="stylesheet" href=""/>
+	<style>
+	</style>
+	<!-- <script type="text/javascript">
+		window.onload=function(){
+		//方法一： 放入数组进行判断
+			var input=document.getElementsByTagName('input')[0];
+			var btn=document.getElementsByTagName('button')[0];
+			var arr1=[];
+			var arr2=[];
+			var flag=true;
+			btn.onclick=function(){
+				var val=input.value+"";
+				if(val=="")
+				{
+					alert("请输入需要判断的数~");
+				}
+				else{
+					var length=val.length;//获取输入的数字的长度
+					for(var i=0;i<length;i++)
+					{
+						(
+							function(){
+								var index=parseInt(i);
+								var now=val.substr(index,1);//从第一位开始截取，截取一位数
+								arr1.push(now);//向数组的末尾添加一个或多个元素
+								arr2.unshift(now);//数组的开头添加一个或更多元素
+							}
+						)(i);
+					}
+					console.log(arr1,arr2);
+					for(var j=0;j<arr1.length;j++)
+					{
+						if(arr1[j]!=arr2[j])
+						{
+							flag=false;
+						}
+						console.log(flag);
+					}
+					if(flag)
+					{
+						alert("是回文数");
+					}
+					else{
+						alert("不是回文数");
+					}
+					// 回归初始值
+					arr1=[];
+					arr2=[];
+					flag=true;
+				}
+			}
+		}
+	</script> -->
+	<script type="text/javascript">
+		window.onload=function(){
+			// 方法二：自身进行判断
+			var input=document.getElementsByTagName('input')[0];
+			var btn=document.getElementsByTagName('button')[0];
+			var arr1=[];
+			var flag=true;
+			btn.onclick=function(){
+				var val=input.value+"";
+				if(val=="")
+				{
+					alert("请输入需要判断的数~");
+				}
+				else{
+					for(var i=0;i<val.length;i++)
+					{
+						(
+							function(){
+								var index=parseInt(i);
+								var now=val.substr(index,1);//从第一位开始截取，截取一位数
+								arr1.push(now);//向数组的末尾添加一个或多个元素
+							}
+						)(i);
+					}
+					var end=val.length-1;
+					for(var start=0;start<end;start++,end--)
+					{
+						if(arr1[start]!=arr1[end])
+						{
+							flag=false;
+						}
+						console.log(flag);
+					}
+
+					if(flag)
+					{
+						alert("是回文数");
+					}
+					else{
+						alert("不是回文数");
+					}
+					// 回归初始值
+					arr1=[];
+					flag=true;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="" placeholder="请输入需要判断的数...">
+	<button>判断</button>
+</body>
+</html>

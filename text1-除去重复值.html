@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link  rel="stylesheet" href=""/>
+	<style>
+	</style>
+	<script type="text/javascript">
+		window.onload=function () {
+			var arr=['1','2','2','4','6','6','9','10'];
+			var arr1=[];
+			var flage=true;
+			for(var i=0;i<arr.length;i++)
+			{
+				for(var j=i+1;j<arr.length-1;j++)
+				{
+					if(arr[i]==arr[j])
+					{
+						flage=false;
+						break;
+					}
+				}
+				if(flage)
+				{
+					arr1.push(arr[i]);
+				}
+				flage=true;
+			}
+			console.log(arr1);
+			console.log(arr1.length);
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>
